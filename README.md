@@ -23,6 +23,17 @@ A high-performance, feature-rich template for MkDocs using the Material theme.
    ```
 4. **Edit `mkdocs.yml`**: Update the `site_name`, `repo_url`, and other metadata.
 
+## 🌐 Deployment
+
+This template is set up to deploy automatically via GitHub Actions.
+
+1. **Push to `main`**: Any push to the `main` branch triggers the deployment workflow.
+2. **Configure GitHub Pages**:
+   - Go to your repository **Settings** > **Pages**.
+   - Under **Build and deployment** > **Source**, select **"Deploy from a branch"**.
+   - Select the **`gh-pages`** branch (created after the first successful action run) and the **`/(root)`** folder.
+   - Click **Save**.
+
 ## 📁 Structure
 
 - `docs/`: Markdown files and documentation source.
