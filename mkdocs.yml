@@ -1,57 +1,83 @@
-site_name: My site
-site_url: https://mydomain.org/mysite
+site_name: mkdocs_template
+site_description: A modern documentation template built with MkDocs Material.
+site_author: SHADIL A M
+site_url: https://shadil-rayyan.github.io/mkdocs_template/
 
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+# Repository
+repo_name: mkdocs_template
+repo_url: https://github.com/shadil-rayyan/mkdocs_template
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
-  favicon: images/favicon.png
-
+  favicon: assets/favicon.ico
+  
   features:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
     - navigation.path
     - navigation.top
     - navigation.footer
+    - navigation.indexes
     - search.highlight
     - search.suggest
     - search.share
     - content.code.copy
     - content.code.annotate
+    - content.tabs.link
+    - toc.follow
 
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Inter
+    code: JetBrains Mono
 
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
-
+        name: Switch to system preference
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
-
+        name: Switch to light mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to dark mode
 
 plugins:
   - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_if_directory_urls: true
+      type: datetime
+  - git-authors:
+      show_email: false
+  - tags
 
 extra:
   social:
-    - icon: fontawesome/brands/mastodon
-      link: https://fosstodon.org/@squidfunk
+    - icon: fontawesome/brands/github
+      link: https://github.com/shadil-rayyan
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/shadilrayyan
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/shadilam
 
   consent:
     title: Cookie consent
@@ -70,7 +96,6 @@ extra:
           name: This page was helpful
           data: 1
           note: Thanks for your feedback!
-
         - icon: material/emoticon-sad-outline
           name: This page could be improved
           data: 0
@@ -79,24 +104,43 @@ extra:
             <a href="..." target="_blank" rel="noopener">feedback form</a>.
 
 markdown_extensions:
+  - abbr
+  - admonition
   - attr_list
-  - tables
+  - def_list
+  - footnotes
   - md_in_html
-
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.blocks.caption
-
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-
-  - pymdownx.tabbed:
-      alternate_style: true
-
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
